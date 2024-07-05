@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        const person = {
+            firstName: 'Ger',
+            lastName: 'Alv',
+            celiac: false,
+            height: 1.71,
+            weight: 89,
+            favDrink: 'Cacaolat',
+            birth: new Date('1986/23/05'),
+            occupation: {
+                title: 'Teacher',
+                company: 'Ironhack',
+                salary: 20000
+            },
+            hobbies: ['sky', 'beer', 'gadgets'],
+            subscriptions: [
+                {
+                    service: 'Netflix',
+                    cost: 12.99,
+                    active: true
+                },
+                {
+                    service: 'Prime',
+                    cost: 10.99,
+                    active: true
+                },
+                {
+                    service: 'HBO',
+                    cost: 9.99,
+                    active: false
+                }
+            ]
+        }
+
+        console.log('Los objetos son de tipo', typeof person)
+
+
+        // Memory
+        const object1 = {}
+        const object2 = {}
+        console.log('Los objetos generan siempre puntos únicos de memoria', object1 === object2)
+
+        // Access (getter)
+        console.log('La persona se llama', person.firstName, person.lastName)
+
+        // Access (alternative getter)
+        console.log('Los corchetes también permiten el acceso a claves:', person['favDrink'])
+
+        // Access (setter)
+        person.weight = 90
+        person.occupation.salary = 21000
+
+        // in operator
+        console.log(`¿La persona tiene edad?`, 'age' in person)
+
+        // keys method
+        console.log('Las claves del objeto son:', Object.keys(person))
+
+        // values method
+        console.log('Las claves del objeto son:', Object.values(person))
+
+
+
+        // Exercise
+        let totalCost = 0
+
+        // for (let i = 0; i < person.subscriptions.length; i++) {
+        //     totalCost += person.subscriptions[i].cost
+        // }
+
+        person.subscriptions.forEach(function (eachSubscription) {
+            if (eachSubscription.active) {
+                totalCost += eachSubscription.cost
+            }
+        })
+
+        console.log('Me estoy dejando', totalCost, '€ en suscripciones D:')
+
+
+    </script>
+</body>
+
+</html>
